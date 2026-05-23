@@ -8,7 +8,7 @@ Successful logins after brute force — meaning the attack actually worked
 Impossible travel — same account logging in from internal and external IPs in a short window
 Privilege escalation — dangerous sudo commands like reading /etc/shadow or opening reverse shells
 Full IOC extraction — pulls every malicious IP and compromised account into a clean summary
-python3 uero .py
+
 
 port_scanner.py — TCP Port Scanner
 Built this one first. It probes a target IP across the ports that actually matter in security work and tells you what's open and what service is running there. Simple but it does exactly what nmap does at its core — I just wanted to understand how it works under the hood before relying on the tool.
