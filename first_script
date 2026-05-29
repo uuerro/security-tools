@@ -1,0 +1,36 @@
+#My first security script yuh
+#This scans a list of common ports and reports which ones are open
+import socket
+
+target = "127.0.0.1"  # This is localhost - your own machine
+
+common_ports = [21, 22, 23, 25, 53, 80, 443, 3306, 3389, 8080]
+
+port_names = {
+    21: "FTP",
+    22: "SSH", 
+    23: "Telnet",
+    25: "SMTP",
+    53: "DNS",
+    80: "HTTP",
+    443: "HTTPS",
+    3306: "MySQL",
+    3389: "RDP",
+    8080: "HTTP-Alt"
+}
+
+print(f"Scanning {target}...")
+print("-" * 30)
+
+for port in common_ports:
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.settimeout(1)
+    result = sock.connect_ex((target, port))
+    if result == 0:
+        print(f"Port {port} ({port_names[port]}) -- OPEN")
+    else:
+        print(f"Port {port} ({port_names[port]}) -- closed")
+    sock.close()
+
+print("-" * 30)
+print("Scan complete.")
