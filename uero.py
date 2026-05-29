@@ -76,7 +76,7 @@ def detect_impossible_travel(events):
                     "user": user,
                     "internal_ip": internal,
                     "external_ip": external,
-                    "severity": "HIGH"
+                    "severity": "HIGH"                
                 })
     return findings
 
@@ -92,6 +92,7 @@ def detect_privilege_escalation(events):
                         "event": event,
                         "severity": "CRITICAL"
                     })
+                    break
     return findings
 
 def generate_report(all_findings):
